@@ -1,0 +1,248 @@
+/* Fonte Inter (a mesma dos wireframes). Sem internet, usa a fonte do sistema. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  --fundo: #ffffff;
+  --cinza-claro: #d9d9d9;
+  --cinza-hover: #c6c6c6;
+  --cinza-medio: #8c8c8c;
+  --cinza-escuro: #5e5e5e;
+  --borda: #9a9a9a;
+  --texto: #000000;
+  --erro: #b3261e;
+  --foco: #1d4ed8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------- Menu principal ---------- */
+.topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 32px;
+  min-height: 84px;
+  padding: 16px 32px;
+  background: var(--cinza-claro);
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 36px;
+}
+
+.menu a {
+  padding: 4px 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.menu a:hover {
+  border-bottom-color: var(--cinza-medio);
+}
+
+.menu a.ativo {
+  border-bottom-color: var(--texto);
+}
+
+/* ---------- Área de conteúdo ---------- */
+.conteudo {
+  padding: 40px 32px 64px;
+}
+
+.titulo {
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.aviso {
+  max-width: 440px;
+  margin: 0 0 24px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  background: #f1f1f1;
+  border-left: 4px solid var(--cinza-medio);
+}
+
+/* ---------- Cards de eventos ---------- */
+.grade-eventos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 290px));
+  gap: 22px 20px;
+}
+
+.card-evento {
+  padding: 16px 12px;
+  font-size: 0.85rem;
+  background: var(--cinza-claro);
+}
+
+.card-evento p {
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+
+.card-evento strong {
+  margin-right: 4px;
+}
+
+.card-acoes {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  font: inherit;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.botao-card {
+  width: 92px;
+  height: 27px;
+  font-size: 0.8rem;
+  color: #fff;
+  background: var(--cinza-medio);
+}
+
+.botao-card:hover {
+  background: var(--cinza-escuro);
+}
+
+.botao-excluir:hover {
+  background: var(--erro);
+}
+
+.botao-principal {
+  width: 132px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto);
+  background: var(--cinza-claro);
+}
+
+.botao-principal:hover {
+  background: var(--cinza-hover);
+}
+
+.botao-principal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Formulários ---------- */
+.formulario {
+  max-width: 320px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.campo label {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.campo input,
+.campo select {
+  height: 34px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: 0;
+}
+
+.campo .invalido {
+  border-color: var(--erro);
+  box-shadow: inset 0 0 0 1px var(--erro);
+}
+
+.erro {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--erro);
+}
+
+.erro:empty {
+  display: none;
+}
+
+/* ---------- Foco visível para teclado ---------- */
+.logo:focus-visible,
+.menu a:focus-visible,
+.botao:focus-visible,
+.campo input:focus-visible,
+.campo select:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .botao,
+  .menu a {
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 600px) {
+  .topo,
+  .conteudo {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .menu {
+    gap: 6px 20px;
+  }
+
+  .grade-eventos {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario {
+    max-width: none;
+  }
+}

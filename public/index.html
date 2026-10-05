@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciador de eventos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Menu principal (igual em todas as telas) -->
+  <header class="topo">
+    <a href="index.html" class="logo">Gerenciador de eventos</a>
+    <nav class="menu" aria-label="Menu principal">
+      <a href="cadastro-palestrante.html">Cadastro de palestrantes</a>
+      <a href="cadastro-evento.html">Cadastro de evento</a>
+      <a href="index.html" class="ativo" aria-current="page">Gerenciador de evento</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <h1 class="titulo">Eventos</h1>
+
+    <!-- Os cards são criados pelo JavaScript a partir do banco de dados -->
+    <div id="lista-eventos" class="grade-eventos"></div>
+
+    <p id="lista-vazia" class="aviso" hidden>
+      Nenhum evento cadastrado ainda.
+      <a href="cadastro-evento.html">Cadastre o primeiro evento</a>.
+    </p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/gerenciador.js"></script>
+</body>
+</html>
